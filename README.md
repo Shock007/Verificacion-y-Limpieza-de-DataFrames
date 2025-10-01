@@ -133,3 +133,27 @@ df_copy.isnull().sum()
 #Graficamos un countplot de Satisfaccion por ciudad.
 sns.countplot(x=df_copy['Satisfaccion'], hue=df_copy['Ciudad'])
 ``` 
+Ahora compara el numero de filas y columnas antes y despues.
+```python
+#Comparamos el numero de filas y columnas, antes y despues
+print(f'Filas y columnas antes de la limpieza: {df.shape}')
+print(f'Filas y columnas despues de la limpieza: {df_copy.shape}')
+```
+Ahora guarda el dataframe como xlsx o como csv:
+```python
+# Guardar el DataFrame como archivo Excel o CSV
+df_copy.to_excel('df_copy_modificado.xlsx', index=False)
+df_copy.to_csv('df_copy_modificado.csv', index=False)
+```
+Ahora importermos nuestro archivos:
+```python
+# Importar utilidad de descarga
+from google.colab import files
+```
+Y ahora descargamos:
+```python
+# Descargar el archivo
+files.download('df_copy_modificado.xlsx')
+files.download('df_copy_modificado.csv')
+```
+```
